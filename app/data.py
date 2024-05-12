@@ -44,6 +44,9 @@ def import_charsheet(n):
 			out['mappedSkills']['unknown'].append(s)
 	out['selfLink'] = f"/characters/{n.replace(' ','-')}"
 	out['allskills'] = load_skills()
+	for w in out['weapons']:
+		if 'outOfRange' == w['weaponRange']:
+			w['weaponRange'] = 'extreme'
 	return out
 
 def load_skills():
