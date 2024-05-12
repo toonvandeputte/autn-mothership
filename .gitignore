@@ -8,6 +8,7 @@ data/characters/*
 virtualenv
 upload.sh
 upload_start.sh
+upload_data.sh
 readme_private.md
 package.json
 package-lock.json
