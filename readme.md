@@ -37,3 +37,9 @@ If you do `bash start.sh` in the root dir of this repository, the Docker contain
 If you want to serve the app via Waitress, change the value in `config.py` accordingly, and run `start.sh` again.
 
 Those if you familiar with Docker will know this, but any changes you make are not reflected immediately. In order to see changes you will have to rebuild the container.
+
+## Character portraits
+
+The portraits used in the app are not available here. The urls provided in the json file are relative to the app backend, and the images are also not free to use.
+
+Most or all of the portraits come from [this set](https://ashen-victor.itch.io/sci-fi-character-portraits-poject), though, which you can download from itch.io and use if you want.
