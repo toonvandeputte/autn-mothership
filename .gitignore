@@ -1,0 +1,13 @@
+__pycache__
+cache
+.DS_Store
+.npm
+node_modules
+data/characters/*
+!data/characters/SAMPLE EXAMPLEFACE.json
+virtualenv
+upload.sh
+upload_start.sh
+readme_private.md
+package.json
+package-lock.json

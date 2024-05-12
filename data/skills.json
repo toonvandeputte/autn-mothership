@@ -1,0 +1,59 @@
+{
+  "trained": {
+    "mod": "+10",
+    "skills": [
+      "linguistics",
+      "zoology",
+      "botany",
+      "geology",
+      "industrialEquipment",
+      "juryRigging",
+      "chemistry",
+      "computers",
+      "zeroG",
+      "mathematics",
+      "art",
+      "archaelogy",
+      "theology",
+      "militaryTraining",
+      "rimwise",
+      "athletics"
+    ]
+  },
+  "expert": {
+    "mod": "+15",
+    "skills": [
+      "psychology",
+      "pathology",
+      "fieldMedicine",
+      "ecology",
+      "asteroidMining",
+      "mechanicalRepair",
+      "explosives",
+      "pharmacology",
+      "hacking",
+      "piloting",
+      "physics",
+      "mysticism",
+      "wildernessSurvival",
+      "firearms",
+      "handToHandCombat"
+    ]
+  },
+  "master": {
+    "mod": "+20",
+    "skills": [
+      "sophontology",
+      "exobiology",
+      "surgery",
+      "planetology",
+      "robotics",
+      "engineering",
+      "cybernetics",
+      "artificialIntelligence",
+      "hyperspace",
+      "xenoesotericism",
+      "command"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "d80c29c6-fe33-442b-b7ee-78fd320fce42",
+  "characterClass": "marine",
+  "name": "SAMPLE EXAMPLEFACE",
+  "pronouns": "SHE / HER",
+  "thumbnailPath": "images/characters/Mothership Chars 15.png",
+  "strength": 37,
+  "speed": 32,
+  "intellect": 34,
+  "combat": 47,
+  "sanity": 17,
+  "fear": 45,
+  "body": 37,
+  "stress": 2,
+  "minStress": 2,
+  "maxWounds": 3,
+  "wounds": 0,
+  "maxHealth": 20,
+  "health": 20,
+  "credits": 110,
+  "trinket": "Pamphlet: *A Lover In Every Port*",
+  "patch": "HMFIC (Head Mother Fucker In Charge)",
+  "traumaResponse": "Whenever you Panic, every Close friendly player must make a Fear Save.",
+  "highScore": 0,
+  "bonusStat": null,
+  "skillInProgress": null,
+  "skillTrainingYearsRemaining": 0,
+  "skillTrainingMonthsRemaining": 0,
+  "skills": ["militaryTraining", "athletics", "archaelogy", "chemistry"],
+  "equipment": [
+    {
+      "id": "efe1de4c-e2b6-41e3-8596-5f0fab47eb85",
+      "name": "Binoculars",
+      "description": "20x magnification. Add night vision (+300cr) or thermal vision (+1kcr).",
+      "equipped": true,
+      "quantity": 1,
+      "cost": 150,
+      "baseType": "binoculars"
+    },
+    {
+      "id": "ce59e2e0-0aa7-4a22-8c07-70700ab6ae1b",
+      "name": "Personal Locator",
+      "description": "Allows crewmembers at a control center (or on the bridge of a ship) to track the location of the wearer.",
+      "equipped": true,
+      "quantity": 1,
+      "cost": 200,
+      "baseType": "personalLocator"
+    }
+  ],
+  "armor": [
+    {
+      "armorType": "standardBattleDress",
+      "id": "d0749dfe-c814-4136-ad7f-f04be68e4049",
+      "name": "Standard Battle Dress",
+      "equipped": true,
+      "armorPoints": 7,
+      "cost": 2000,
+      "oxygenSupply": 0,
+      "notes": "Includes short-range comms.",
+      "armorSpeed": "normal"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "2a753078-0cad-48a2-8c2d-fa85c1de5343",
+      "name": "SK 109 Seeker",
+      "equipped": true,
+      "cost": 5000,
+      "weaponRange": "outOfRange",
+      "damageString": "4d10 DMG (AA)",
+      "shots": 3,
+      "magazineSize": 3,
+      "critical": "Gunshot [+]",
+      "special": "[-] on Combat Check when fired at Close Range.",
+      "weaponType": "Smart Rifle",
+      "magazines": 2,
+      "damage": [{ "damageType": "xd10", "amount": 4, "rollMode": null }],
+      "baseType": "smartRifle"
+    }
+  ],
+  "items": [],
+  "conditions": [],
+  "creationComplete": true,
+  "woundEffects": [],
+  "contractors": []
+}

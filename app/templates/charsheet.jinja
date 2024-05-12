@@ -1,0 +1,164 @@
+{% extends "base.jinja" %}
+{% from "macros/charsheet.jinja" import field %}
+{% from "macros/charsheet.jinja" import stat %}
+{% from "macros/charsheet.jinja" import status %}
+{% block body %}
+
+<body class="p-0 m-0 print:h-full">
+	<nav class="p-2 bg-gray-800 text-white print:hidden"><div class="container mx-auto"><a title="All characters" href="/characters">&larr; Back to all characters</a></div></nav>
+	<main class="sm:flex gap-2 h-full content-stretch px-5 print:px-0 2xl:container mx-auto my-5 print:mx-0 print:my-0">
+		{# Begin Left col #}
+		<div class="sm:w-1/2 flex flex-col gap-2 mb-2 sm:mb-0">
+			<header class="flex flex-col gap-1 border-4 p-2 border-solid border-black font-bold rounded-md">
+				<div class="font-bold text-xl">Mothership Character profile</div>
+				{# <div>Player name</div> #}
+				<div class="grow text-xs pt-8">
+					<p>Player name</p>
+				</div>
+			</header>
+			{# Begin Personal details #}
+			<div class="bg-gray-800 text-white p-2 font-bold rounded-md ">
+				<h2 class="uppercase text-center mb-2">Personal details</h2>
+				<div class="flex justify-stretch gap-2">
+					<div
+						class="grow min-w-40 max-w-60 border-1 border border-solid border-black bg-white bg-white rounded-lg">
+					</div>
+					{# <img src="{{ character.thumbnailUrl }}"> #}
+					<div class="grow">
+						{{ field("Character name", character.name) }}
+						{{ field("Pronouns", character.pronouns) }}
+						{{ field("Class", character.characterClass) }}
+						{{ field("High score", '') }}
+					</div>
+				</div>
+			</div>
+			{# End Personal details #}
+			{# Begin Stats #}
+			<div class="bg-gray-200 p-2 font-bold rounded-md ">
+				<h2 class="uppercase text-center mb-2">Stats</h2>
+				<div class="flex justify-center">
+					{{stat("strength", character.strength)}}
+					{{stat("speed", character.speed)}}
+					{{stat("intellect", character.intellect)}}
+					{{stat("combat", character.combat)}}
+				</div>
+			</div>
+			{# End Stats #}
+			{# Begin Trauma Response #}
+			<div class="bg-gray-200 p-2 font-bold rounded-md ">
+			<p class="text-sm">Trauma Response: {{character.traumaResponse}}</p>
+			</div>
+			{# End Trauma Response #}
+			{# Begin Saves #}
+			<div class="bg-gray-200 p-2 font-bold rounded-md ">
+				<h2 class="uppercase text-center mb-2">Saves</h2>
+				<div class="flex justify-center">
+					{{stat("sanity", character.sanity)}}
+					{{stat("fear", character.fear)}}
+					{{stat("body", character.body)}}
+				</div>
+			</div>
+			{# End Saves #}
+			{# Begin Status report #}
+			<div class="border-4 p-2 border-solid border-black font-bold rounded-md grow min-h-64">
+				<h2 class="uppercase text-center mb-2">Status report</h2>
+				<div class="flex justify-center mb-2">
+					{{status("health",character.maxHealth)}}
+					{{status("wounds",character.maxWounds)}}
+					{{status("stress",character.minStress,"min")}}
+				</div>
+				<h2 class="uppercase text-center">Conditions</h2>
+			</div>
+			{# End Status report #}
+		</div>
+		{# End Left col #}
+		{# Begin Right col #}
+		<div class="sm:w-1/2 flex flex-col gap-2">
+			{# Begin Skills #}
+			<div class="border-4 p-2 border-solid border-black font-bold rounded-md">
+				<h2 class="uppercase text-center mb-2">Skills</h2>
+				<div class="pb-20">
+					{% for k,s in character.mappedSkills.items() %}
+					{% if character.mappedSkills[k] %}
+					<p class="-indent-2 pl-2">{{k|capitalize}} skills {% if k in skills %}({{ skills[k]['mod'] }}){% endif %}: {{s|join(', ')}}</p>
+					{% endif %}
+					{% endfor %}
+				</div>
+				<div class="rounded-md bg-gray-200 p-2">
+					<h3 class="uppercase">Skill training</h3>
+					<div class="flex justify-stretch gap-2">
+						<div class="w-1/2 bg-white rounded-md p-2 grow text-xs pt-8">
+							<h4>In progress</h4>
+						</div>
+						<div class="w-1/2 bg-white rounded-md p-2 grow text-xs pt-8">
+							<h4>Time Remaining</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			{# End Skills #}
+			{# Begin Equipment #}
+			<div class="border-4 p-2 border-solid border-black font-bold rounded-md grow flex flex-col">
+				<h2 class="uppercase text-center mb-2">Equipment, armor & items</h2>
+				<div class="grow">
+					{% for item in character.equipment %}
+					<div class="mb-2">
+						<h3>{{item.name}}{% if item.quantity > 1 %} (x {{item.quantity}}){% endif %}</h3>
+						<p class="text-xs">{{item.description}}</p>
+					</div>
+					{% endfor %}
+					{% for item in character._items %}
+					<div class="mb-2">
+						<h3>{{item.title}}{% if item.quantity > 1 %} ({{item.quantity}}){% endif %}</h3>
+						{% if item.subtitle %}<p class="text-xs">{{ item.subtitle }}</p>{% endif %}</p>
+						{% if item.description %}<p class="text-xs">{{ item.description }}</p>{% endif %}</p>
+					</div>
+					{% endfor %}
+					{% for item in character.armor %}
+					<div class="mb-2">
+						<h3>{{item.name}}</h3>
+						<p class="text-xs">Armor points: {{item.armorPoints}}{% if item.notes %} | {{item.notes}}{%
+							endif %}</p>
+					</div>
+					{% endfor %}
+
+				</div>
+				<div class="flex justify-stretch gap-2">
+					<div class="grow w-1/2 flex flex-col items-center">
+						<h4>Armor Points</h4>
+						<div class="w-full border-2 p-2 border-solid border-black rounded-lg text-center text-2xl">
+							{{character.totalArmorPoints}}</div>
+					</div>
+					<div class="grow w-1/2 flex flex-col items-center">
+						<h4>Credits</h4>
+						<div
+							class="w-full border-2 p-2 border-solid border-black rounded-lg text-center text-2xl text-gray-300">
+							{{character.credits}}</div>
+					</div>
+				</div>
+			</div>
+			{# End Equipment #}
+			{# Begin Weapons #}
+			<div class="border-4 p-2 border-solid border-black font-bold rounded-md min-h-44">
+				<h2 class="uppercase text-center mb-2">Weapons</h2>
+				{% for item in character.weapons %}
+				<div class="mb-2">
+					<h3>{{item.weaponType}}{% if item.name %} ({{item.name}}){% endif %}</h3>
+					<p class="pl-2 text-xs">{{item.weaponRange}} {{item.damageString}} | {% if item.shots %}{{ item.shots }} shots |{% endif %}
+						critical: {{ item.critical }} </p>
+					{% if item.special %}<p class="pl-2 text-xs">special: {{item.special}}</p>{% endif %}
+				</div>
+				{% endfor %}
+			</div>
+			{# End Weapons #}
+			{# Begin Tiny things #}
+			<div class="bg-gray-200 p-2 font-bold rounded-md flex flex-col gap-2 text-sm">
+				<p>Patch: {{character.patch}}</p>
+				<p>Trinket: {{character.trinket}}</p>
+			</div>
+			{# End Tiny things #}
+		</div>
+		{# End Right col #}
+	</main>
+</body>
+{% endblock %}
