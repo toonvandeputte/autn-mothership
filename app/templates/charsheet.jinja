@@ -104,7 +104,7 @@
 					{% for item in character.equipment %}
 					<div class="mb-2">
 						<h3>{{item.name}}{% if item.quantity > 1 %} (x {{item.quantity}}){% endif %}</h3>
-						<p class="text-xs">{{item.description}}</p>
+						{% if item.description %}<p class="text-xs">{{item.description}}</p>{% endif %}
 					</div>
 					{% endfor %}
 					{% for item in character._items %}
